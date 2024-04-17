@@ -1,0 +1,12 @@
+{
+    "name": "node-ocr",
+    "description": "An example project demonstrates how to use myocr node",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flows.json",
+            "credentialsFile": "flows_cred.json"
+        }
+    }
+}
