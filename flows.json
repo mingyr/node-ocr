@@ -1,1 +1,146 @@
-[]
+[
+    {
+        "id": "20fefcd1f7dfccb2",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a49ccb30046e3df0",
+        "type": "mqtt-broker",
+        "name": "Mosquitto",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "414a8f9518330247",
+        "type": "image",
+        "z": "20fefcd1f7dfccb2",
+        "name": "",
+        "width": 160,
+        "data": "payload",
+        "dataType": "msg",
+        "thumbnail": false,
+        "active": true,
+        "pass": false,
+        "outputs": 0,
+        "x": 360,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "ac90371ffee68f9c",
+        "type": "mqtt in",
+        "z": "20fefcd1f7dfccb2",
+        "name": "",
+        "topic": "image",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "a49ccb30046e3df0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 350,
+        "y": 60,
+        "wires": [
+            [
+                "347a15cd4d0de071",
+                "414a8f9518330247",
+                "04d9ad949ca5221d"
+            ]
+        ]
+    },
+    {
+        "id": "347a15cd4d0de071",
+        "type": "debug",
+        "z": "20fefcd1f7dfccb2",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "bec94da0cf503a04",
+        "type": "debug",
+        "z": "20fefcd1f7dfccb2",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "04d9ad949ca5221d",
+        "type": "myocr",
+        "z": "20fefcd1f7dfccb2",
+        "name": "",
+        "paddleocr": "D:\\PaddleOCR-json_v.1.3.1\\PaddleOCR-json.exe",
+        "x": 690,
+        "y": 200,
+        "wires": [
+            [
+                "bec94da0cf503a04",
+                "31a081e2d50e9d79"
+            ]
+        ]
+    },
+    {
+        "id": "31a081e2d50e9d79",
+        "type": "mqtt out",
+        "z": "20fefcd1f7dfccb2",
+        "name": "",
+        "topic": "result",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a49ccb30046e3df0",
+        "x": 1070,
+        "y": 260,
+        "wires": []
+    }
+]
